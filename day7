@@ -1,0 +1,22 @@
+ static int[] maxSubarray(int[] arr) {
+           int res=arr[0];
+        int maxEnd=arr[0];
+        int res2=0;
+        for(int i=1;i<arr.length;i++){
+            maxEnd=Math.max(arr[i]+maxEnd,arr[i]);
+            res=Math.max(res,maxEnd);
+        }
+        int c=0,max_n=arr[0];
+         for(int i=0;i<arr.length;i++){
+             if(arr[i]>0)
+                 res2=res2+arr[i];
+              else{
+                  c++;
+                  max_n=Math.max(max_n,arr[i]);
+              }
+         }
+        if(c==arr.length)
+            res2=max_n;
+        int[] a={res,res2};
+        return a;
+    }
